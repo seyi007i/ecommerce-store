@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
-import jwt_decode from "jwt-decode";
+import * as jwt_decode from "jwt-decode";
 import { setCurrentUser } from "./redux/user/user.actions";
 import store from "./redux/store";
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { Routes, Route, Navigate} from "react-router-dom";
 //import { Switch, Route } from "react-router-dom";
 import MainNavigation from "./components/navigation/mainNavigation.component";
 import Footer from "./components/footer/footer.component";
@@ -16,7 +16,7 @@ if (localStorage.jwtToken) {
   // set auth tioken
   // setAuthToken(localStorage.jwtToken);
   // decode token
-  const decoded = jwt-decode(localStorage.jwtToken);
+  const decoded = jwt_decode(localStorage.jwtToken);
   store.dispatch(setCurrentUser(decoded));
 }
 
@@ -27,12 +27,12 @@ function App() {
     <div className="App">
       <MainNavigation />
       <div className="main">
-        <Switch>
+        <Routes>
           <Route path="/" component={HomePage} exact />
           <Route path="/shop" component={ShopPage} />
           <PrivateRoute path="/checkout" component={CheckoutPage} />
           <Route path="/signin" component={SignInAndSignUpPage} />
-        </Switch>
+        </Routes>
       </div>
 
       <Footer />
