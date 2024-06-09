@@ -6,20 +6,18 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./backend
+        working-directory: ./frontend
     steps:
-     - uses: actions/checkout@v2
+     #- uses: actions/checkout@v2
+     - uses: actions/checkout@v4
+     - uses: actions/setup-node@v4
        with:
-          repository: seyi007i/ecommerce-store
-          path: ./
-          Sparse-checkout: frontend
-          sparse-checkout-cone-mode: false
-          #token: ${{ secrets.PAT_REPO_TOKEN }} ```
-     
+        node-version: 18
+
      - name: Install dependencies
-       run: npm install
+       run: npm ci
      - name: build 
-       run: npm run build
+       run: npm run build --if-present
      - name: test app
        run: npm test
 
