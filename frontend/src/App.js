@@ -28,8 +28,9 @@ function App() {
       <MainNavigation />
       <div className="main">
         <Routes>
-          <Route path="/" component={HomePage} exact />
+          //<Route path="/" component={HomePage} exact />
           <Route path="/shop" component={ShopPage} />
+          <Route path="/" element={<Navigate to="/404" /> } />
           <PrivateRoute path="/checkout" component={CheckoutPage} />
           <Route path="/signin" component={SignInAndSignUpPage} />
         </Routes>
