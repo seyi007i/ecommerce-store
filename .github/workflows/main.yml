@@ -9,6 +9,12 @@ jobs:
         working-directory: ./backend
     steps:
      - uses: actions/checkout@v2
+       with:
+          repository: seyi007i/ecommerce-store
+          path: ./
+          Sparse-checkout: frontend
+          sparse-checkout-cone-mode: false
+          #token: ${{ secrets.PAT_REPO_TOKEN }} ```
      
      - name: Install dependencies
        run: npm install
