@@ -3,8 +3,8 @@ import "./App.css";
 import * as jwt_decode from "jwt-decode";
 import { setCurrentUser } from "./redux/user/user.actions";
 import store from "./redux/store";
-import { Routes, Route, Navigate} from "react-router-dom";
-//import { Switch, Route } from "react-router-dom";
+//import { Routes, Route, Navigate} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import MainNavigation from "./components/navigation/mainNavigation.component";
 import Footer from "./components/footer/footer.component";
 import HomePage from "./pages/homePage/homePage";
@@ -28,9 +28,9 @@ function App() {
       <MainNavigation />
       <div className="main">
         <Routes>
-          //<Route path="/" component={HomePage} exact />
+          <Route path="/" component={HomePage} exact />
           <Route path="/shop" component={ShopPage} />
-          <Route path="/" element={<Navigate to="/404" /> } />
+          //<Route path="/" element={<Navigate to="/404" /> } />
           <PrivateRoute path="/checkout" component={CheckoutPage} />
           <Route path="/signin" component={SignInAndSignUpPage} />
         </Routes>
