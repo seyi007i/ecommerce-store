@@ -4,9 +4,12 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
     steps:
      - uses: actions/checkout@v2
-     - working-directory: ./frontend
+     
      - name: Install dependencies
        run: npm install
      - name: build 
