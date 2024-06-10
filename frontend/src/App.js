@@ -1,4 +1,5 @@
 import React from "react";
+import thunk from "redux-thunk"
 import "./App.css";
 import * as jwt_decode from "jwt-decode";
 import { setCurrentUser } from "./redux/user/user.actions";
